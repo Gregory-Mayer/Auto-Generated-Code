@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<face:DataModel xmlns:xmi="http://www.omg.org/XMI" xmlns:face="http://www.opengroup.us/face/2.1" xmlns:platform="http://www.opengroup.us/face/platform/2.1" xmlns:uop="http://www.opengroup.us/face/uop/2.1" name="UCS_USM" xmi:version="2.0" xmi:id="EAID_2E2ACE09_3DBA_4244_AB07_1DD732377368">
+  <pdm xmi:type="face:PlatformDataModel" xmi:id="FMW_E8DE97D3_229F_45E0_B54D_B9200C142237" name="FMW_PlatformDataModel_2015_11_02">
+    <pdm xmi:type="face:PlatformDataModel" xmi:id="FMW_AF3FCE1F_F9F4_4330_8447_6436EDCF67DF" name="Vehicle">
+      <element xmi:type="platform:View" xmi:id="FMW_4B57F9B3_BDE3_4C71_8410_57B43A087C30" name="ControlCommand">
+        <characteristic xmi:type="platform:CharacteristicProjection" xmi:id="FMW_0197B8E8_E872_413F_96CF_0F93E58F0A5B" path=".airVehiclePDM.tailNumber" rolename="vehicleID" projectedCharacteristic="FMW_F919D31A_5D4A_4AA4_8E38_B8E565170B37"/>
+        <characteristic xmi:type="platform:CharacteristicProjection" xmi:id="FMW_547649D9_381A_4F20_A139_F320CE3CFC29" path=".setPoint" rolename="commanded_flight_mode" projectedCharacteristic="FMW_F6491C6B_1509_43D2_B869_191660D4ADE5"/>
+      </element>
+      <element xmi:type="platform:View" xmi:id="FMW_F11EBC8B_B55B_48EB_A55A_11CF1237382A"
+               name="StatusReport">
+        <characteristic xmi:type="platform:CharacteristicProjection" xmi:id="FMW_1EC5F5BF_7348_4E49_9DEC_9031CF6F23F2"
+                        path=".airVehiclePDM.tailNumber"
+                        rolename="vehicleID" projectedCharacteristic="FMW_F919D31A_5D4A_4AA4_8E38_B8E565170B37"/>
+        <characteristic xmi:type="platform:CharacteristicProjection" xmi:id="FMW_5BC6314C_2A9C_42BD_A3EE_BA90AAB4FB63"
+                        path=".value"
+                        rolename="reported_flight_mode" projectedCharacteristic="FMW_F6491C6B_1509_43D2_B869_191660D4ADE5"/>
+        <characteristic xmi:type="platform:CharacteristicProjection" xmi:id="FMW_9D59F0C2_9D06_41B2_92C1_3CAA32751BC9"
+                        path=".airVehiclePDM.locationPDM.position"
+                        rolename="position_WGS84PositionMeasurementPDM" projectedCharacteristic="FMW_F919D31A_5D4A_4AA4_8E38_B8E565170B37"/>
+      </element>
+    </pdm>
+    <element xmi:type="platform:IDLStruct" xmi:id="FMW_E93487D2_CCF0_4BAF_B8E5_503DCF66FAA0" name="WGS84PositionMeasurementPDM">
+      <composition xmi:type="platform:IDLComposition" xmi:id="FMW_72770027_BF7D_41C2_90B7_06521C9E0A44" rolename="latitude_radians" type="FMW_64973E55_833E_482F_AEE8_44415A603EE2"/>
+      <composition xmi:type="platform:IDLComposition" xmi:id="FMW_DA384EB2_4410_47FF_B753_D89C9C7389EF" rolename="longitude_radians" type="FMW_10D2D61D_CAD2_4107_B789_B36BC55F56F3"/>
+      <composition xmi:type="platform:IDLComposition" xmi:id="FMW_20722BA5_C4D6_410C_B36C_B80495926E7B" rolename="altitude_meters" type="FMW_F7F443A2_BB48_474D_B381_723DABDC227E"/>
+    </element>
+    <element xmi:type="platform:Double" xmi:id="FMW_64973E55_833E_482F_AEE8_44415A603EE2" name="latitude_radians"/>
+    <element xmi:type="platform:Double" xmi:id="FMW_10D2D61D_CAD2_4107_B789_B36BC55F56F3" name="longitude_radians"/>
+    <element xmi:type="platform:Float" xmi:id="FMW_F7F443A2_BB48_474D_B381_723DABDC227E" name="altitude_meters"/>
+    <element xmi:type="platform:ULong" xmi:id="FMW_F04BA9C1_0C21_4DA2_8282_64792231D367"
+             name="vehicleID"/>
+    <element xmi:type="platform:Entity" xmi:id="FMW_B53F4D97_E01F_4F4F_ADEC_2E257FA5C0A6" name="AirVehicleTypePDM_1">
+      <composition xmi:type="platform:Composition" xmi:id="FMW_DF244B46_800C_44D0_B00B_55E65C531053" rolename="tailNumber" type="FMW_F04BA9C1_0C21_4DA2_8282_64792231D367"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_36BF8A63_87F1_4710_94D5_3B1D6E7BE558" rolename="velocityPDM" type="FMW_BACFFDF1_4854_467C_B8E6_07B9D6FFFCA6"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_4028AEE5_2C79_4EF2_86E7_B9C665870ADE" rolename="locationPDM" type="FMW_5327D590_DBAC_443B_998D_D0326A7719F3"/>
+    </element>
+    <element xmi:type="platform:Entity" xmi:id="FMW_F919D31A_5D4A_4AA4_8E38_B8E565170B37" name="AirSystemTypePDM">
+      <composition xmi:type="platform:Composition" xmi:id="FMW_3DCF670C_2498_467A_9272_3F67028CF758" rolename="airVehiclePDM" type="FMW_B53F4D97_E01F_4F4F_ADEC_2E257FA5C0A6"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_6BC9DDFB_B60B_4AC2_BC2C_35D2C8777B89" rolename="elementID" type="FMW_C9EC5200_E0A2_487C_B0D1_74C39EE34F60"/>
+    </element>
+    <element xmi:type="platform:Enumeration" xmi:id="FMW_15E15EDB_3A18_4A18_905B_E71ECDFF4528" name="FlightModeEnum">
+      <enumerationLiteral xmi:type="platform:EnumerationLiteral" xmi:id="FMW_3BC4C0F9_E2EE_4575_811C_5B526D2BE98C" name="No_Mode"/>
+      <enumerationLiteral xmi:type="platform:EnumerationLiteral" xmi:id="FMW_2952D142_BB08_4FB2_B077_6CA11C0BFA65" name="Flight_Director"/>
+      <enumerationLiteral xmi:type="platform:EnumerationLiteral" xmi:id="FMW_8DBED03C_E52B_46FE_B538_37F0372DDF1D" name="Waypoint"/>
+      <enumerationLiteral xmi:type="platform:EnumerationLiteral" xmi:id="FMW_EE9E3051_11BA_4B55_9A6A_586647F82517" name="Loiter"/>
+      <enumerationLiteral xmi:type="platform:EnumerationLiteral" xmi:id="FMW_90A722C5_7083_476C_9213_D99BEFCCE738" name="Autopilot"/>
+      <enumerationLiteral xmi:type="platform:EnumerationLiteral" xmi:id="FMW_8F1399C1_C3A4_4E36_921C_B127B1D2099E" name="Terrain_Avoidance"/>
+    </element>
+    <element xmi:type="platform:Entity" xmi:id="FMW_F6491C6B_1509_43D2_B869_191660D4ADE5" name="AirVehicleFlightModeTypePDM">
+      <composition xmi:type="platform:Composition" xmi:id="FMW_C63633D3_96AC_4403_88BD_DD2CF05457C1" rolename="setPoint" type="FMW_15E15EDB_3A18_4A18_905B_E71ECDFF4528"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_C07D25CE_FA07_44E8_8C88_3055CF5704F9" rolename="value" type="FMW_15E15EDB_3A18_4A18_905B_E71ECDFF4528"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_47B15143_1879_4B7C_94A8_B4FD385A2E78" rolename="elementID" type="FMW_C9EC5200_E0A2_487C_B0D1_74C39EE34F60"/>
+    </element>
+    <element xmi:type="platform:IDLStruct" xmi:id="FMW_6D742E2C_1DA4_43B3_B00E_F3693437F26B"
+             name="VelocityMeasurementPDM">
+      <composition xmi:type="platform:IDLComposition" xmi:id="FMW_F90FA8C9_58D8_41DB_B1BE_2E4F410AE37A" rolename="u_speed_meters_per_second" type="FMW_FE41435E_E828_4818_98A1_A167501766F7"/>
+      <composition xmi:type="platform:IDLComposition" xmi:id="FMW_A8B9F091_0AA4_4109_A7AD_738F1979EEB7" rolename="v_speed_meters_per_second" type="FMW_B42BE931_39F1_4072_ADB9_2AEAB5046D1E"/>
+      <composition xmi:type="platform:IDLComposition" xmi:id="FMW_5E8D829C_4FE2_4722_B722_F7F572BDE8E5" rolename="w_speed_meters_per_second" type="FMW_ED34AA67_45B1_4E38_9851_3163155A62A0"/>
+    </element>
+    <element xmi:type="platform:Entity" xmi:id="FMW_BACFFDF1_4854_467C_B8E6_07B9D6FFFCA6" name="VelocityCapabilityTypePDM">
+      <composition xmi:type="platform:Composition" xmi:id="FMW_853E0034_6BB1_4395_B76B_5E218D6224EE" rolename="velocity" type="FMW_6D742E2C_1DA4_43B3_B00E_F3693437F26B"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_789D9DAD_8A17_4F0C_AE7C_F0446657C97D" rolename="elementID" type="FMW_C9EC5200_E0A2_487C_B0D1_74C39EE34F60"/>
+    </element>
+    <element xmi:type="platform:ULong" xmi:id="FMW_DF717054_44D6_4639_97A6_E6A31E88BA46" name="vehicleID_1"/>
+    <element xmi:type="platform:Float" xmi:id="FMW_FE41435E_E828_4818_98A1_A167501766F7" name="u_speed_meters_per_second"/>
+    <element xmi:type="platform:Float" xmi:id="FMW_B42BE931_39F1_4072_ADB9_2AEAB5046D1E" name="v_speed_meters_per_second"/>
+    <element xmi:type="platform:Float" xmi:id="FMW_ED34AA67_45B1_4E38_9851_3163155A62A0" name="w_speed_meters_per_second"/>
+    <element xmi:type="platform:Entity" xmi:id="FMW_5327D590_DBAC_443B_998D_D0326A7719F3" name="PositionCapabilityTypePDM">
+      <composition xmi:type="platform:Composition" xmi:id="FMW_5683CA5E_2A10_4987_8203_4E957A05B1BF" rolename="position" type="FMW_E93487D2_CCF0_4BAF_B8E5_503DCF66FAA0"/>
+      <composition xmi:type="platform:Composition" xmi:id="FMW_1588207A_B6F8_4CAA_9606_5160D8F52AAA" rolename="elementID" type="FMW_C9EC5200_E0A2_487C_B0D1_74C39EE34F60"/>
+    </element>
+    <element xmi:type="platform:ULong" xmi:id="FMW_C9EC5200_E0A2_487C_B0D1_74C39EE34F60" name="UniqueIdentifier_UnitlessInteger"/>
+  </pdm>
+  <uopModel xmi:type="face:UoPModel" xmi:id="FMW_7BCE9781_2AC6_400A_B85F_9CF9E4CF58CD" name="FMW_UoPModel_2015_11_02">
+    <element xmi:type="uop:PortableComponent" xmi:id="FMW_69854C9C_2C92_474E_84C5_02CD6C0D6DB1" notes="This is the Unit of Portability for outgoing messages." name="Outgoing_UOP" faceProfile="GeneralPurpose" partitionType="POSIX">
+      <port xmi:type="uop:MessagePort" xmi:id="FMW_EDE7C24F_CFCE_4801_A93C_4210F04C277E" messageType="FMW_4B57F9B3_BDE3_4C71_8410_57B43A087C30" messageExchangeType="OutboundMessage" programmingLanguage="Java" synchronizationStyle="NonBlocking" name="ControlCommand_Message_Port" communicationStyle="Queuing" description="Control Command Message Port"/>
+    </element>
+    <element xmi:type="uop:PortableComponent" xmi:id="FMW_AF228E05_6E37_40E7_BBE7_9E170FF8D4B9" notes="This is the UoP for incoming messages." name="Incoming_UoP" faceProfile="GeneralPurpose" partitionType="POSIX">
+      <port xmi:type="uop:MessagePort" xmi:id="FMW_F4A45E91_EE3A_4394_884C_A445C3522E28" messageType="FMW_F11EBC8B_B55B_48EB_A55A_11CF1237382A" messageExchangeType="InboundMessage" programmingLanguage="Java" synchronizationStyle="NonBlocking" name="StatusReport_Message_Port" communicationStyle="SingleInstanceMessaging" description="Status Report Message Port"/>
+      <port xmi:type="uop:MessagePort" xmi:id="FMW_EDE7C24F_CFCE_4801_ZZZZ_4210F04C277E" messageType="FMW_4B57F9B3_BDE3_4C71_8410_57B43A087C30" messageExchangeType="InboundMessage" programmingLanguage="Java" synchronizationStyle="NonBlocking" name="ControlCommand_Message_PortIn" communicationStyle="Queuing" description="Control Command Message Port"/>
+    </element>
+  </uopModel>
+</face:DataModel>
